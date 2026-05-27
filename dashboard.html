@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="EduTrack - Dashboard del estudiante. Gestiona tus cursos, sigue tu progreso y accede a tu contenido educativo.">
+    <title>EduTrack | Dashboard del Estudiante</title>
+    
+    <link rel="stylesheet" href="CSS/dashboard.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6 (íconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+    <!-- Overlay para móvil (sidebar oculto) -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- ============================================
+         SIDEBAR FIJO (240px desktop, oculto en móvil)
+         ============================================ -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-icon">🔷</span>
+                <span class="logo-text">EduTrack</span>
+            </div>
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-menu-sidebar">
+                <li class="nav-item active">
+                    <a href="#dashboard" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#mis-cursos" class="nav-link">
+                        <i class="fas fa-book-open"></i>
+                        <span>Mis Cursos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#calendario" class="nav-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Calendario</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#comunidad" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Comunidad</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#logros" class="nav-link">
+                        <i class="fas fa-trophy"></i>
+                        <span>Logros</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#configuracion" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Configuración</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="https://placeholder.co/48x48/0066FF/FFFFFF?text=MC" alt="Avatar de María">
+                </div>
+                <div class="user-details">
+                    <span class="user-name">María Camila R.</span>
+                    <span class="user-email">maria@edutrack.co</span>
+                </div>
+            </div>
+            <button class="logout-btn" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Cerrar sesión</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- ============================================
+         MAIN CONTENT (Área principal)
+         ============================================ -->
+    <main class="main-content">
+        <!-- Header superior -->
+        <header class="top-header">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Buscar curso, instructor o clase...">
+            </div>
+            
+            <div class="header-actions">
+                <button class="notifications-btn" id="notificationsBtn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="user-menu">
+                    <div class="user-avatar-small">
+                        <img src="https://placeholder.co/36x36/00E5A0/0A0C10?text=MC" alt="Avatar">
+                    </div>
+                    <span class="user-name-small">María</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- ============================================
+             DASHBOARD CONTENT
+             ============================================ -->
+        <div class="dashboard-content">
+            
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div class="welcome-text">
+                    <h1>¡Hola, María! <span class="wave">👋</span></h1>
+                    <p>Sigue así, llevas <strong>68%</strong> de tu especialización completada</p>
+                </div>
+                <div class="global-progress">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" style="width: 68%"></div>
+                    </div>
+                    <button class="btn-continue">
+                        <i class="fas fa-play-circle"></i>
+                        Continuar con: Backend con Node.js
+                    </button>
+                </div>
+            </section>
+
+            <!-- KPI Cards Grid -->
+            <section class="kpi-section">
+                <div class="kpi-header">
+                    <h2>📊 Resumen de aprendizaje</h2>
+                    <p>Tu progreso en la especialización Backend + Frontend</p>
+                </div>
+                
+                <div class="kpi-grid">
+                    <!-- Card 1: Cursos activos -->
+                    <div class="kpi-card">
+                        <div class="kpi-card-header">
+                            <div class="kpi-icon courses">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <span class="kpi-title">Cursos activos</span>
+                        </div>
+                        <div class="kpi-value">4</div>
+                        <div class="kpi-variation variation-up">
+                            <span>↑</span> +1 vs mes anterior
+                        </div>
+                        <div class="progress-detail">
+                            <span>📖 En progreso: 3 cursos</span>
+                            <span>✅ Completados: 1 curso</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2: Progreso promedio -->
+                    <div class="kpi-card">
+                        <div class="kpi-card-header">
+                            <div class="kpi-icon progress">
+                                <i class="fas fa-chart-simple"></i>
+                            </div>
+                            <span class="kpi-title">Progreso promedio</span>
+                        </div>
+                        <div class="kpi-value">68%</div>
+                        <div class="kpi-variation variation-up">
+                            <span>↑</span> +12% vs mes anterior
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span>Backend con Node.js</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="progress-bar-bg small">
+                                <div class="progress-bar-fill" style="width: 75%"></div>
+                            </div>
+                            <div class="progress-label" style="margin-top: var(--space-md);">
+                                <span>Frontend con React</span>
+                                <span>60%</span>
+                            </div>
+                            <div class="progress-bar-bg small">
+                                <div class="progress-bar-fill" style="width: 60%"></div>
+                            </div>
+                            <div class="progress-label" style="margin-top: var(--space-md);">
+                                <span>Data Science con Python</span>
+                                <span>45%</span>
+                            </div>
+                            <div class="progress-bar-bg small">
+                                <div class="progress-bar-fill" style="width: 45%"></div>
+                            </div>
+                        </div>
+                        <div class="progress-detail">
+                            <span>🎯 Meta del mes: 75%</span>
+                            <span class="completed-courses">+120 min esta semana</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3: Próximo pago -->
+                    <div class="kpi-card">
+                        <div class="kpi-card-header">
+                            <div class="kpi-icon payment">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <span class="kpi-title">Próximo pago</span>
+                        </div>
+                        <div class="kpi-value">$89.900</div>
+                        <div class="kpi-variation variation-neutral">
+                            <span>⏰</span> Suscripción mensual
+                        </div>
+                        <div class="payment-date">
+                            <span class="payment-day">15</span>
+                            <span class="payment-month">de diciembre, 2026</span>
+                        </div>
+                        <div class="payment-alert">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>Pago programado en 3 días</span>
+                        </div>
+                        <div class="progress-detail">
+                            <span>💳 Método: Nequi</span>
+                            <span>📅 Próxima factura: Dic 15</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tabla de Cursos -->
+            <section class="courses-table-section">
+                <div class="courses-header">
+                    <div class="header-title">
+                        <h2>📚 Mis cursos</h2>
+                        <p>5 cursos en total • 3 en progreso • 1 completado • 1 pausado</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn-filter active">Todos</button>
+                        <button class="btn-filter">En progreso</button>
+                        <button class="btn-filter">Completados</button>
+                        <button class="btn-filter">Pausados</button>
+                    </div>
+                </div>
+                
+                <div class="table-wrapper">
+                    <table class="courses-table">
+                        <thead>
+                            <tr>
+                                <th>Curso</th>
+                                <th>Instructor</th>
+                                <th>Progreso</th>
+                                <th>Fecha inicio</th>
+                                <th>Precio COP</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="course-name">
+                                    <strong>🚀 Backend con Node.js</strong>
+                                    <div class="course-module">Módulo 5: Autenticación JWT</div>
+                                </td>
+                                <td>
+                                    <div class="instructor">
+                                        <div class="instructor-avatar">AR</div>
+                                        <span class="instructor-name">Andrés Rodríguez</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-mini">
+                                        <div class="progress-mini-bar">
+                                            <div class="progress-mini-fill" style="width: 75%"></div>
+                                        </div>
+                                        <span class="progress-mini-percent">75%</span>
+                                    </div>
+                                </td>
+                                <td>15/10/2026</td>
+                                <td>
+                                    <span class="price-current">$299.900</span>
+                                    <span class="price-old">$590.000</span>
+                                </td>
+                                <td><span class="status-badge status-progress">En progreso</span></td>
+                            </tr>
+                            <tr>
+                                <td class="course-name">
+                                    <strong>⚛️ Frontend con React</strong>
+                                    <div class="course-module">Módulo 3: Hooks y Context API</div>
+                                </td>
+                                <td>
+                                    <div class="instructor">
+                                        <div class="instructor-avatar">MP</div>
+                                        <span class="instructor-name">María Pérez</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-mini">
+                                        <div class="progress-mini-bar">
+                                            <div class="progress-mini-fill" style="width: 60%"></div>
+                                        </div>
+                                        <span class="progress-mini-percent">60%</span>
+                                    </div>
+                                </td>
+                                <td>01/11/2026</td>
+                                <td>
+                                    <span class="price-current">$349.900</span>
+                                    <span class="price-old">$690.000</span>
+                                </td>
+                                <td><span class="status-badge status-progress">En progreso</span></td>
+                            </tr>
+                            <tr>
+                                <td class="course-name">
+                                    <strong>🐍 Data Science con Python</strong>
+                                    <div class="course-module">Pausado en Módulo 2: Pandas</div>
+                                </td>
+                                <td>
+                                    <div class="instructor">
+                                        <div class="instructor-avatar">CG</div>
+                                        <span class="instructor-name">Carlos Gómez</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-mini">
+                                        <div class="progress-mini-bar">
+                                            <div class="progress-mini-fill paused" style="width: 35%"></div>
+                                        </div>
+                                        <span class="progress-mini-percent">35%</span>
+                                    </div>
+                                </td>
+                                <td>20/09/2026</td>
+                                <td>
+                                    <span class="price-current">$399.900</span>
+                                    <span class="price-old">$790.000</span>
+                                </td>
+                                <td><span class="status-badge status-paused">Pausado</span></td>
+                            </tr>
+                            <tr>
+                                <td class="course-name">
+                                    <strong>☁️ DevOps con AWS</strong>
+                                    <div class="course-module">Módulo 1: Introducción a la nube</div>
+                                </td>
+                                <td>
+                                    <div class="instructor">
+                                        <div class="instructor-avatar">JR</div>
+                                        <span class="instructor-name">Julián Rincón</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-mini">
+                                        <div class="progress-mini-bar">
+                                            <div class="progress-mini-fill" style="width: 15%"></div>
+                                        </div>
+                                        <span class="progress-mini-percent">15%</span>
+                                    </div>
+                                </td>
+                                <td>01/12/2026</td>
+                                <td>
+                                    <span class="price-current">$449.900</span>
+                                    <span class="price-old">$890.000</span>
+                                </td>
+                                <td><span class="status-badge status-progress">En progreso</span></td>
+                            </tr>
+                            <tr>
+                                <td class="course-name">
+                                    <strong>🇬🇧 Inglés Técnico para Devs</strong>
+                                    <div class="course-module">Certificado obtenido el 30/11/2026</div>
+                                </td>
+                                <td>
+                                    <div class="instructor">
+                                        <div class="instructor-avatar">LS</div>
+                                        <span class="instructor-name">Laura Sierra</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="progress-mini">
+                                        <div class="progress-mini-bar">
+                                            <div class="progress-mini-fill completed" style="width: 100%"></div>
+                                        </div>
+                                        <span class="progress-mini-percent">100%</span>
+                                    </div>
+                                </td>
+                                <td>10/08/2026</td>
+                                <td>
+                                    <span class="price-current">$149.900</span>
+                                    <span class="price-old">$290.000</span>
+                                </td>
+                                <td><span class="status-badge status-completed">Completado</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="table-footer">
+                        <div class="table-info">
+                            Mostrando <strong>5</strong> de <strong>12</strong> cursos totales
+                        </div>
+                        <div class="pagination">
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn">3</button>
+                            <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Leyenda de estados -->
+            <div class="status-legend">
+                <div class="legend-item">
+                    <span class="status-badge status-progress">En progreso</span>
+                    <span>Curso activo</span>
+                </div>
+                <div class="legend-item">
+                    <span class="status-badge status-completed">Completado</span>
+                    <span>Certificado disponible</span>
+                </div>
+                <div class="legend-item">
+                    <span class="status-badge status-paused">Pausado</span>
+                    <span>Puedes retomarlo</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Dashboard JavaScript -->
+    <script src="dashboard.js"></script>
+</body>
+</html>
